@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="number" id="valor-a"><br>
+    <input type="number" id="valor-b"><br>
+    <input type="button" id="btn-calcula" value="Calcular">
+    <div id="res"></div>
+
+    <script>
+        let txtValor1 = document.getElementById('valor-a');
+        let txtValor2 = document.getElementById('valor-b');
+        let res = document.getElementById('res');
+        let btn = document.getElementById('btn-calcula');
+
+        btn.addEventListener('click', () => {
+            const soma = Number(txtValor1.value) + Number(txtValor2.value);
+            res.innerHTML += `A soma vale ${soma}`;
+        }, false);
+
+    </script>
+</body>
+
+</html>
