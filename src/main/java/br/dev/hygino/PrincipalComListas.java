@@ -3,6 +3,7 @@ package br.dev.hygino;
 import br.dev.hygino.model.Person;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 
 interface Listas {
@@ -20,7 +21,7 @@ public class PrincipalComListas {
 
         List<Person> pessoas = Arrays.asList(
                 new Person("Gorete", "goretinha@zmail.com", "Rua das Antas 804"),
-                new Person("Jupira", "jupirinha@getmail.com", "Rua das Flores 505"),
+                new Person("Jupira", "ajupirinha@getmail.com", "Rua das Flores 505"),
                 new Person("Dilma", "dilma@opressora.net", "Rua das Antas 804")
         );
 
@@ -28,7 +29,11 @@ public class PrincipalComListas {
        // pessoas.forEach(System.out::println);
 
         Listas maiusculas = list -> list.stream().map(String::toUpperCase).toList();
+
         maiusculas.execute(nomes).forEach(System.out::println);
+
+        pessoas.sort(Comparator.comparing(Person::getEmail));
+        pessoas.forEach(System.out::println);
     }
 
     public static List<String> buscaPorNomeIniciandoCom(List<String> nomes, String nome) {
