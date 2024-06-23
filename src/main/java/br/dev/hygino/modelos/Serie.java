@@ -1,4 +1,4 @@
-package br.com.alura.screenmatch.modelos;
+package br.dev.hygino.modelos;
 
 public class Serie extends Titulo {
     private int temporadas;

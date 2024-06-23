@@ -1,8 +1,8 @@
-package br.com.alura.screenmatch.principal;
+package br.dev.hygino.principal;
 
-import br.com.alura.screenmatch.modelos.Filme;
-import br.com.alura.screenmatch.modelos.Serie;
-import br.com.alura.screenmatch.modelos.Titulo;
+import br.dev.hygino.modelos.Filme;
+import br.dev.hygino.modelos.Serie;
+import br.dev.hygino.modelos.Titulo;
 
 import java.util.ArrayList;
 import java.util.Collections;
