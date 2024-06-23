@@ -1,0 +1,16 @@
+meta {
+  name: Get Movie
+  type: http
+  seq: 2
+}
+
+get {
+  url: http://www.omdbapi.com/?apikey=ac2e2bd6&t=matrix
+  body: none
+  auth: none
+}
+
+query {
+  apikey: ac2e2bd6
+  t: matrix
+}
