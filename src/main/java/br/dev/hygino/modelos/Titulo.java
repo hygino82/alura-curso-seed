@@ -1,13 +1,11 @@
 package br.dev.hygino.modelos;
 
-import com.google.gson.annotations.SerializedName;
+import br.dev.hygino.exceptions.ErroDeConversaoException;
 
 public class Titulo implements Comparable<Titulo> {
 
-    @SerializedName("Title")
     private String nome;
 
-    @SerializedName("Year")
     private int anoDeLancamento;
 
     private boolean incluidoNoPlano;
@@ -18,6 +16,15 @@ public class Titulo implements Comparable<Titulo> {
     public Titulo(String nome, int anoDeLancamento) {
         this.nome = nome;
         this.anoDeLancamento = anoDeLancamento;
+    }
+
+    public Titulo(TituloOmdb meuTituloOmdb) {
+        if (meuTituloOmdb.year().length() > 4) {
+            throw new ErroDeConversaoException("Formato inválido de ano, pois tem mais de 4 caracteres");
+        }
+        this.nome = meuTituloOmdb.title();
+        this.anoDeLancamento = Integer.parseInt(meuTituloOmdb.year());
+        this.duracaoEmMinutos = Integer.parseInt(meuTituloOmdb.runtime().substring(0, 2));
     }
 
     public void exibeFichaTecnica() {
@@ -77,12 +84,9 @@ public class Titulo implements Comparable<Titulo> {
     @Override
     public String toString() {
         return "Titulo{" +
-                "nome='" + nome + '\'' +
-                ", anoDeLancamento=" + anoDeLancamento +
-                ", incluidoNoPlano=" + incluidoNoPlano +
-                ", somaDasAvaliacoes=" + somaDasAvaliacoes +
-                ", totalDeAvaliacoes=" + totalDeAvaliacoes +
-                ", duracaoEmMinutos=" + duracaoEmMinutos +
+                "nome = '" + nome + '\'' +
+                ", anoDeLancamento = " + anoDeLancamento +
+                ", duracaoEmMinutos = " + duracaoEmMinutos +
                 '}';
     }
 
